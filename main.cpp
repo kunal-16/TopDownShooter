@@ -2,7 +2,7 @@
 #include<GL/glut.h>
 #include<stdlib.h>
 #include<iostream>
-#include<math.h> 
+#include<math.h>
 #include"classes/gameObjects.h"
 
 #define n 500
@@ -31,7 +31,7 @@ namespace GameObjects
 	int bulletspeed=26;
 	int hea=100;
 	int gamestate=startScreen;
-	int spec=5;	
+	int spec=5;
 }
 
 using namespace GameObjects;
@@ -41,7 +41,7 @@ using namespace GameObjects;
 void showstars()
 {
 	int i;
-	
+
 	for(i=0;i<n;i++)
 	{
 		if(s[i].y >= 0)
@@ -53,9 +53,9 @@ void showstars()
 		{
 			s[i].y=500;
 			s[i].x=rand()%500;
-		}	
+		}
 	}
-	
+
 }
 void FireBulletsIfShot()
 {
@@ -68,14 +68,14 @@ if(ship.shoot)
 }
 void drawship()
 {
-	
+
 	double x=ship.x;
 	double y=ship.y;
 	glLineWidth(1);
 	glColor3f(1,1,1);
 	if(ship.alive)
 	{
-		 
+
 		ship.displayShip();
 
 
@@ -91,7 +91,7 @@ void drawship()
 	}
 	FireBulletsIfShot();
 
-	
+
 }
 void drawbullet()
 {
@@ -107,7 +107,7 @@ void drawbullet()
 		if(b[i].y > 500)
 		{
 			b[i].reinit();
-			
+
 		}
 	}
 	if(NumberOfBulletsPerFrame>30)
@@ -117,7 +117,7 @@ void drawbullet()
 }
 void drawenemy()
 {
-	
+
 	int i;
 	for(i=0;i<NumberOfEnemiesPerFrame;i++)
 	{
@@ -137,16 +137,16 @@ void drawenemy()
 			{
 				e[i].init();
 			}
-			
+
 		}
 	}
 
-	
-	
+
+
 }
 void BulletsVsEnemyCollisionTest()
 {
-	
+
 	int i;
 	int j;
 	for(i=0;i<NumberOfBulletsPerFrame;i++)
@@ -169,7 +169,7 @@ void BulletsVsEnemyCollisionTest()
 }
 void MyShipVsEnemyCollisionTest()
 {
-	
+
 	int i;
 	for(i=0;i<NumberOfEnemiesPerFrame;i++)
 	{
@@ -180,7 +180,7 @@ void MyShipVsEnemyCollisionTest()
 				if(((ship.y+15 >= e[i].y-20) && (ship.y+15 <= e[i].y+20) )|| ((ship.y+30 >= e[i].y-20) && (ship.y+30 <= e[i].y+20)))
 				{
 					hea=hea-5;
-					if(hea < 0) {hea=0;ship.alive =0;ship.explode=1;} 
+					if(hea < 0) {hea=0;ship.alive =0;ship.explode=1;}
 					e[i].alive=0;
 					e[i].explode=1;
 				}
@@ -197,7 +197,7 @@ void MyShipVsEnemyCollisionTest()
 			}
 		}
 	}
-	
+
 }
 
 void SpecialWeaponVsEnemyCollisionTest()
@@ -299,10 +299,10 @@ void gamedisplay()
 		level=0;
 		if(NumberOfEnemiesPerFrame <= 7) NumberOfEnemiesPerFrame++;
 	}
-	
+
 	// glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 	showstars();
-	
+
 	drawship();
 	drawenemy();
 	drawbullet();
@@ -314,7 +314,7 @@ void gamedisplay()
 	glFlush();
 	system("sleep 0.00001");
 	glutSwapBuffers();
-	glutPostRedisplay();	
+	glutPostRedisplay();
 }
 void move(int x, int y)
 {
@@ -333,7 +333,7 @@ void reshape(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glutPostRedisplay();
-	
+
 }
 void Reinitialization()
 {
@@ -377,9 +377,9 @@ void keyboard(unsigned char key, int x, int y)
 		break;
 		case 'b': if(gamestate == instructionScreen){ gamestate=startScreen;glutPostRedisplay();}
 		}
-			
+
 		break;
-			
+
 	}
 	glutPostRedisplay();
 }
@@ -392,7 +392,7 @@ void overdisplay()
 	char c;
 	int rem;
 	int temp=sco;
-	
+
 	glColor3f(1,0,0);
 	glRasterPos2f(180,250);
 	int i;
@@ -413,7 +413,7 @@ void overdisplay()
 	for(i=0;i<sizeof(ch);i++)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,ch[i]);
 	glRasterPos2f(180,130);
-	
+
 	for(i=0;i<sizeof(text3);i++)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,text3[i]);
 
@@ -427,8 +427,10 @@ void startScreenDisplay()
 	char text1[]="Press 1 to play\n";
 	char text2[]="Press 2 for instructions\n";
 	char dev[]="Developed by\n";
-	char name1[]="Luckyson Khaidem : 1PE12CS080\n";
-	char name2[]="Nishant Niket: 1PE12CS107\n";
+	char name1[]="Aaditya Mahadevan : 1811022\n";
+	char name2[]="Anina Pillai: 1811034\n";
+	char name3[]="Tarush Rajput: 1811035\n";
+	char name4[]="Kunal Rane: 1811036\n";
 	glColor3f(1,1,1);
 	glRasterPos2f(170,250);
 	int i;
@@ -453,6 +455,12 @@ void startScreenDisplay()
 	glRasterPos2f(10,80);
 		for(i=0;i<sizeof(name2);i++)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10,name2[i]);
+	glRasterPos2f(10,60);
+		for(i=0;i<sizeof(name1);i++)
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10,name3[i]);
+	glRasterPos2f(10,40);
+		for(i=0;i<sizeof(name2);i++)
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10,name4[i]);
 
 	glFlush();
 	glutSwapBuffers();
@@ -491,11 +499,11 @@ void display()
 		case instructionScreen: displayInstructions();
 		break;
 	}
-	
-	
+
+
 }
 void myinit()
-{	
+{
 	int i;
 	int inc=10;
 	glClearColor(0,0,0,0);
@@ -503,7 +511,7 @@ void myinit()
 	{
 		s[i].x=rand()%500;
 		s[i].y=rand()%500;
-		
+
 	}
 	for(i=0;i<481;i++)
 	{
@@ -519,7 +527,7 @@ int main(int argc, char** argv)
 	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(500,500);
-	glutCreateWindow("Star Rage");
+	glutCreateWindow("Top Down Shooter");
 	glutReshapeFunc(reshape);
 	glutDisplayFunc(display);
 	glutPassiveMotionFunc(move);
