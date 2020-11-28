@@ -180,7 +180,7 @@ void MyShipVsEnemyCollisionTest()
 				if(((ship.y+15 >= e[i].y-20) && (ship.y+15 <= e[i].y+20) )|| ((ship.y+30 >= e[i].y-20) && (ship.y+30 <= e[i].y+20)))
 				{
 					hea=hea-5;
-					if(hea < 0) {hea=0;ship.alive =0;ship.explode=1;}
+					if(hea <= 0) {hea=0;ship.alive =0;ship.explode=1;}
 					e[i].alive=0;
 					e[i].explode=1;
 				}
@@ -190,7 +190,7 @@ void MyShipVsEnemyCollisionTest()
 				if(((ship.y-15 >= e[i].y-20) && (ship.y-15 <= e[i].y+20) )|| ((ship.y+15 >= e[i].y-20) && (ship.y+15 <= e[i].y+20)))
 				{
 					hea=hea-2;
-					if(hea< 0) {hea=0;ship.alive=0;ship.explode=1;}
+					if(hea< =0) {hea=0;ship.alive=0;ship.explode=1;}
 					e[i].alive=0;
 					e[i].explode=1;
 				}
