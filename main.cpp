@@ -456,10 +456,10 @@ void startScreenDisplay()
 		for(i=0;i<sizeof(name2);i++)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10,name2[i]);
 	glRasterPos2f(10,60);
-		for(i=0;i<sizeof(name1);i++)
+		for(i=0;i<sizeof(name3);i++)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10,name3[i]);
 	glRasterPos2f(10,40);
-		for(i=0;i<sizeof(name2);i++)
+		for(i=0;i<sizeof(name4);i++)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10,name4[i]);
 
 	glFlush();
