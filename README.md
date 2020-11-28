@@ -11,12 +11,18 @@ Play as long as you want!
 
 ## Contributors
 Aaditya Mahadevan(1811022)
+
 Anina Pillai(1811034)
+
 Tarush Rajput(1811035)
+
 Kunal Rane(1811036)
+
 Assisted By - Prof. Vaibhav Vasani
 
 College  - K.J. Somaiya College of Engineering
+
+
 Subject Computer Graphics and Visualisation
 
 ## Screenshots
